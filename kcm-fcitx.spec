@@ -25,6 +25,8 @@ URL: http://fcitx.googlecode.com/
 License: GPLv2
 Group: System/Internationalization
 BuildRequires: pkgconfig(fcitx) pkgconfig(fcitx-qt) kdelibs4-devel
+BuildRequires: pkgconfig(xkbfile)
+BuildRequires: fcitx-qt4
 
 %track
 prog %{name} = {
