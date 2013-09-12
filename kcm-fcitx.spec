@@ -2,11 +2,11 @@
 %define scmrev %{nil}
 
 Name: kcm-fcitx
-Version: 0.4.2
+Version: 0.4.3
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release: 1
-Source0: http://fcitx.googlecode.com/files/%{name}-%{version}.tar.xz
+Source0: http://download.fcitx-im.org/kcm-fcitx/%{name}-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
 Source0: %{name}-%{scmrev}.tar.xz
@@ -21,7 +21,7 @@ Source0: %{name}-%{scmrev}.tar.xz
 %endif
 %endif
 Summary: KCM (Systemsettings) module for configuring fcitx
-URL: http://fcitx.googlecode.com/
+URL: http://fcitx-im.org/
 License: GPLv2
 Group: System/Internationalization
 BuildRequires: pkgconfig(fcitx) pkgconfig(fcitx-qt) kdelibs4-devel
@@ -36,6 +36,7 @@ prog %{name} = {
 }
 
 %description
+KCM (Systemsettings) module for configuring fcitx
 
 %prep
 %if "%{scmrev}" == ""

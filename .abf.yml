@@ -1,2 +1,4 @@
+removed_sources:
+  kcm-fcitx-0.4.2.tar.xz: 1d6d89bfd649629c12e7eac9044f2c43f8e5ef96
 sources:
-  "kcm-fcitx-0.4.2.tar.xz": 1d6d89bfd649629c12e7eac9044f2c43f8e5ef96
+  kcm-fcitx-0.4.3.tar.xz: 69598723d0324e082d4e1fa08a53c8fb63aba797
