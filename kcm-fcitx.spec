@@ -5,7 +5,7 @@ Name: kcm-fcitx
 Version: 0.4.3
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 6
+Release: 7
 Source0: http://download.fcitx-im.org/kcm-fcitx/%{name}-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
