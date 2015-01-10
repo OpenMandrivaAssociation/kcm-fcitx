@@ -24,9 +24,12 @@ Summary: KCM (Systemsettings) module for configuring fcitx
 URL: http://fcitx-im.org/
 License: GPLv2
 Group: System/Internationalization
-BuildRequires: pkgconfig(fcitx) pkgconfig(fcitx-qt) kdelibs4-devel
+BuildRequires: pkgconfig(fcitx) 
+BuildRequires: pkgconfig(fcitx-qt) 
+BuildRequires: kdelibs4-devel
 BuildRequires: pkgconfig(xkbfile)
 BuildRequires: fcitx-qt4
+BuildRequires: pkgconfig(qimageblitz)
 
 %track
 prog %{name} = {
