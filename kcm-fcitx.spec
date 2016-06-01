@@ -46,4 +46,6 @@ KCM (Systemsettings) module for configuring fcitx.
 %find_lang kcm_fcitx
 
 %files -f kcm_fcitx.lang
-
+%{_sysconfdir}/xdg/fcitx-skin.knsrc
+%{_libdir}/qt5/plugins/kcm_fcitx.so
+%{_datadir}/kservices5/kcm_fcitx.desktop
