@@ -33,6 +33,8 @@ KCM (Systemsettings) module for configuring fcitx.
 
 %prep
 %setup -q
+%global optflags %optflags -Wno-c++11-narrowing
+
 %cmake_kde5
 
 %build
