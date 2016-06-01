@@ -33,10 +33,10 @@ KCM (Systemsettings) module for configuring fcitx.
 
 %prep
 %setup -q
-%cmake_kde5
 
 %build
-%make -C build
+%cmake_kde5
+%make
 
 %install
 %makeinstall_std -C build
