@@ -36,10 +36,10 @@ KCM (Systemsettings) module for configuring fcitx.
 %cmake_kde5
 
 %build
-%ninja -C build
+%make -C build
 
 %install
-%ninja_install -C build
+%makeinstall_std -C build
 %find_lang kcm_fcitx
 
 %files -f kcm_fcitx.lang
