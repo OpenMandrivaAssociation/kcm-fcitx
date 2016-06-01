@@ -1,35 +1,25 @@
-%define beta %{nil}
-%define scmrev %{nil}
-
-Name: kcm-fcitx
-Version: 0.4.3
-%if "%{beta}" == ""
-%if "%{scmrev}" == ""
-Release: 9
-Source0: http://download.fcitx-im.org/kcm-fcitx/%{name}-%{version}.tar.xz
-%else
-Release: 0.%{scmrev}.1
-Source0: %{name}-%{scmrev}.tar.xz
-%endif
-%else
-%if "%{scmrev}" == ""
-Release: 0.%{beta}.1
-Source0: %{name}-%{version}%{beta}.tar.bz2
-%else
-Release: 0.%{beta}.0.%{scmrev}.1
-Source0: %{name}-%{scmrev}.tar.xz
-%endif
-%endif
 Summary: KCM (Systemsettings) module for configuring fcitx
+Name: kcm-fcitx
+Version: 0.5.3
+Release: 1
 URL: http://fcitx-im.org/
 License: GPLv2
+Source0: http://download.fcitx-im.org/kcm-fcitx/%{name}-%{version}.tar.xz
 Group: System/Internationalization
 BuildRequires: pkgconfig(fcitx) 
-BuildRequires: pkgconfig(fcitx-qt) 
-BuildRequires: kdelibs4-devel
+BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Gui)
+BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(xkbfile)
-BuildRequires: fcitx-qt4
-BuildRequires: pkgconfig(qimageblitz)
+BuildRequires: cmake(FcitxQt5DBusAddons)
+BuildRequires: cmake(ECM)
+BuildRequires: cmake(KF5CoreAddons)
+BuildRequires: cmake(KF5WidgetsAddons)
+BuildRequires: cmake(KF5KCMUtils)
+BuildRequires: cmake(KF5ItemViews)
+BuildRequires: cmake(KF5I18n)
+BuildRequires: cmake(KF5KIO)
+BuildRequires: cmake(KF5NewStuff)
 
 %track
 prog %{name} = {
@@ -39,26 +29,23 @@ prog %{name} = {
 }
 
 %description
-KCM (Systemsettings) module for configuring fcitx
+KCM (Systemsettings) module for configuring fcitx.
 
 %prep
-%if "%{scmrev}" == ""
-%setup -q -n %{name}-%{version}%{beta}
-%else
-%setup -q -n %{name}
-%endif
+%setup -q
+%global optflags %optflags -Wno-c++11-narrowing
+
+%cmake_kde5
 
 %build
-%cmake
-%make
+%ninja -j1 -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
+
 %find_lang kcm_fcitx
 
 %files -f kcm_fcitx.lang
-%_bindir/kbd-layout-viewer
-%_libdir/kde4/kcm_fcitx.so
-%_datadir/applications/kde4/kbd-layout-viewer.desktop
-%_datadir/config/fcitx-skin.knsrc
-%_datadir/kde4/services/kcm_fcitx.desktop
+%{_sysconfdir}/xdg/fcitx-skin.knsrc
+%{_libdir}/qt5/plugins/kcm_fcitx.so
+%{_datadir}/kservices5/kcm_fcitx.desktop
