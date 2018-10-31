@@ -1,7 +1,7 @@
 Summary: KCM (Systemsettings) module for configuring fcitx
 Name: kcm-fcitx
 Version: 0.5.3
-Release: 1
+Release: 2
 URL: http://fcitx-im.org/
 License: GPLv2
 Source0: http://download.fcitx-im.org/kcm-fcitx/%{name}-%{version}.tar.xz
