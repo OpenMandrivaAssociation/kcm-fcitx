@@ -1,7 +1,7 @@
 Summary: KCM (Systemsettings) module for configuring fcitx
 Name: kcm-fcitx
-Version: 0.5.3
-Release: 2
+Version: 0.5.5
+Release: 1
 URL: http://fcitx-im.org/
 License: GPLv2
 Source0: http://download.fcitx-im.org/kcm-fcitx/%{name}-%{version}.tar.xz
@@ -21,18 +21,11 @@ BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5KIO)
 BuildRequires: cmake(KF5NewStuff)
 
-%track
-prog %{name} = {
-	url = http://code.google.com/p/fcitx/downloads/list
-	regex = %name-(__VER__)\.tar\.xz
-	version = %{version}
-}
-
 %description
 KCM (Systemsettings) module for configuring fcitx.
 
 %prep
-%setup -q
+%autosetup -p1
 %global optflags %optflags -Wno-c++11-narrowing
 
 %cmake_kde5
